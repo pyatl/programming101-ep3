@@ -68,6 +68,5 @@ def main():
     else:
         print('\nEnjoy your day!\n')
 
-
 if __name__ == "__main__":
     main()
