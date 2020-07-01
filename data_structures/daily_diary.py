@@ -33,6 +33,10 @@ class Diary:
             formatted_entry = f'The entry created on {created} is: {description} \n'
             print(formatted_entry)
 
+    def new_entry(self):
+        choice = input('Do you want to enter a new entry? y/n\n')
+        return choice
+
 
 class Entry:
     def __init__(self):
@@ -52,11 +56,17 @@ class Entry:
 def main():
     diary = Diary()
     diary.load()
+    diary.show_all_entries()
+    
+    new_entry = diary.new_entry()
+    if new_entry == 'y':
+        entry = Entry()
+        entry.get_description()
+        diary.add_entry(entry)
+        diary.save()
 
-    entry = Entry()
-    entry.get_description()
-    diary.add_entry(entry)
-    diary.save()
+    else:
+        print('\nEnjoy your day!\n')
 
 
 if __name__ == "__main__":
